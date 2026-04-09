@@ -21,7 +21,7 @@ public class Dropdown extends HerokuAppBaseClass{
 		List<WebElement>options=dropdownValue.getOptions();
 		System.out.println("Options in the dropdown are : "+options.size());
 		
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		dropdownValue.selectByVisibleText("Option 1");
 		System.out.println("Text in dropdown after selecting option 1 : "+dropdownValue.getFirstSelectedOption().getText());
 		

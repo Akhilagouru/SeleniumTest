@@ -7,18 +7,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-import HerokuAppBase.HerokuAppBaseClass;
+import DemoQABase.DemoqaBaseClass;
 
 
-public class Dropdown extends HerokuAppBaseClass
+public class Dropdown extends DemoqaBaseClass
 {
 	@Test
 	public void selectDropdown() throws InterruptedException 
 	{
-		driver.findElement(By.xpath("//*[text()='Dropdown']")).click();
+		 //Click on Elements
+		 driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
+		 scrollDown();
+		 //click on Widget -> Select Menu
+		 driver.findElement(By.xpath("//*[text()='Widgets']")).click();
+		 scrollDown();
+		driver.findElement(By.xpath("//*[text()='Select Menu']")).click();
 		
-		Thread.sleep(3000);
-		WebElement dropdown = driver.findElement(By.xpath("//select[@id='dropdown']"));
+		
+		WebElement dropdown= driver.findElement(By.id("oldSelectMenu"));		
 		Select dropdownValue=new Select(dropdown);
 		
 		//print the size of options
@@ -33,9 +39,13 @@ public class Dropdown extends HerokuAppBaseClass
 		}
 		
 		Thread.sleep(2000);
-		dropdownValue.selectByIndex(0);
+		dropdownValue.selectByVisibleText("Green");
 		System.out.println("Text in dropdown after selecting option 1 : "+dropdownValue.getFirstSelectedOption().getText());
 	
+	}
+	public void bootstrapDropdown() 
+	{
+	    	
 	}
 
 }

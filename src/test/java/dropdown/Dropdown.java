@@ -43,9 +43,36 @@ public class Dropdown extends DemoqaBaseClass
 		System.out.println("Text in dropdown after selecting option 1 : "+dropdownValue.getFirstSelectedOption().getText());
 	
 	}
-	public void bootstrapDropdown() 
+	@Test
+	public void hiddenMultiselectDropdown() 
 	{
-	    	
+		 //Click on Elements
+		 driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
+		 scrollDown();
+		 //click on Widget -> Select Menu
+		 driver.findElement(By.xpath("//*[text()='Widgets']")).click();
+		 scrollDown();
+		 driver.findElement(By.xpath("//*[text()='Select Menu']")).click();
+		
+		 driver.findElement(By.xpath("//*[normalize-space()='Select...']")).click();
+		
+		 //get count of options in the dropdown
+		 List<WebElement> Options = driver.findElements(By.xpath("//*[contains(@class,'option')]"));		 
+		 System.out.println("number of options in the multi-select dropdown are : "+Options.size());
+		  //get the text of values in dropdown and selecting values using text
+		 System.out.println("Options in the multi-select dropdown are :");
+		 for(WebElement opt:Options)
+		 {
+			 System.out.println(opt.getText());
+			 if(opt.getText().equals("Green")|| opt.getText().equals("Red")|| opt.getText().equals("Black"))
+			 {
+				 opt.click();
+			 }
+		 }
+		 
+//		 //Select multiple options using locator
+//		 driver.findElement(By.xpath("//div[text()='Green']")).click();
+//		 driver.findElement(By.xpath("//div[text()='Red']")).click();
 	}
 
 }

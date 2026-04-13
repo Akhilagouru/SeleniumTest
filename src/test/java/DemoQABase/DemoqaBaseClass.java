@@ -60,13 +60,13 @@ public class DemoqaBaseClass {
 
     	FileUtils.copyFile(src, dest);
     }
-    @AfterClass
-    public void tearDown()
-    {
-
-        driver.close();
-    }
-    
+//    @AfterClass
+//    public void tearDown()
+//    {
+//
+//        driver.close();
+//    }
+//    
     @DataProvider(name="LoginData")
     public Object[][] getData() throws Exception
     {

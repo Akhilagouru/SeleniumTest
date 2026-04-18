@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-12T22:38:36 IST" name="Default suite" finished-at="2026-04-12T22:38:47 IST" duration-ms="10774">
+  <suite started-at="2026-04-17T22:12:13 IST" name="Default suite" finished-at="2026-04-17T22:12:23 IST" duration-ms="10269">
     <groups>
     </groups>
-    <test started-at="2026-04-12T22:38:36 IST" name="Default test" finished-at="2026-04-12T22:38:47 IST" duration-ms="10774">
-      <class name="dropdown.Dropdown">
-        <test-method is-config="true" signature="setup()[pri:0, instance:dropdown.Dropdown@3d285d7e]" started-at="2026-04-12T22:38:36 IST" name="setup" finished-at="2026-04-12T22:38:43 IST" duration-ms="7404" status="PASS">
+    <test started-at="2026-04-17T22:12:13 IST" name="Default test" finished-at="2026-04-17T22:12:23 IST" duration-ms="10269">
+      <class name="WebTable">
+        <test-method is-config="true" signature="setup()[pri:0, instance:WebTable@40005471]" started-at="2026-04-17T22:12:13 IST" name="setup" finished-at="2026-04-17T22:12:22 IST" duration-ms="9315" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="bootstrapDropdown()[pri:0, instance:dropdown.Dropdown@3d285d7e]" started-at="2026-04-12T22:38:43 IST" name="bootstrapDropdown" finished-at="2026-04-12T22:38:47 IST" duration-ms="3298" status="PASS">
+        <test-method signature="staticElements()[pri:0, instance:WebTable@40005471]" started-at="2026-04-17T22:12:22 IST" name="staticElements" finished-at="2026-04-17T22:12:23 IST" duration-ms="869" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- bootstrapDropdown -->
-      </class> <!-- dropdown.Dropdown -->
+        </test-method> <!-- staticElements -->
+      </class> <!-- WebTable -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -20,6 +21,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -46,6 +48,25 @@ public class DemoqaBaseClass {
     	 //Scroll down the page
 		   Actions actions = new Actions(driver);
 		   actions.sendKeys(Keys.PAGE_DOWN).perform();
+    }
+    public void scrollDownJs() throws InterruptedException
+    {
+         JavascriptExecutor js = (JavascriptExecutor)driver;
+         js.executeScript("window.scrollBy(0, 500)");
+    }
+    public void scrollToCenter()
+    {
+    	((JavascriptExecutor) driver).executeScript(
+    	    "arguments[0].scrollIntoView({block: 'center'});", ele);
+    }
+    public void scrollWithWait()
+    {
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	wait.until(webDriver -> 
+    	    ((JavascriptExecutor) webDriver)
+    	        .executeScript("return document.readyState")
+    	        .equals("complete")
+    	);
     }
     public void clickInterception(WebElement ele) 
     {

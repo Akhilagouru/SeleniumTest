@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -19,7 +21,7 @@ public class ExcelFile extends DemoqaBaseClass
 	 
 	} 
 	@Test(dataProvider="LoginData")
-	public void writeToExcel()
+	public void writeToExcel() throws Exception
 	{
 	   driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
 	  

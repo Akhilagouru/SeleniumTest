@@ -14,6 +14,7 @@ import DemoQABase.DemoqaBaseClass;
 
 public class Alerts extends DemoqaBaseClass
 {
+	@Test
 	public void navigateToAlert()
 	{
 		//click on Elements

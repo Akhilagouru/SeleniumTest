@@ -20,6 +20,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.commons.io.FileUtils;
@@ -33,11 +34,18 @@ public class DemoqaBaseClass {
     public WebElement ele;
 
     @BeforeClass
-    public void setup() {
+    public void setup() 
+    {
+    	
+//   	ChromeOptions options = new ChromeOptions();
+//    	//To run the test cases in headless mode
+//    	options.addArguments("--headless=new");
+//    	//To handle SSL(privacy error)
+//    	options.setAcceptInsecureCerts(true);
+//    	
+        driver = new ChromeDriver();
 
-        driver = new ChromeDriver();   // FIXED (removed local variable)
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        
         driver.get("https://demoqa.com");
         driver.manage().window().maximize();
@@ -77,17 +85,18 @@ public class DemoqaBaseClass {
     {
     	TakesScreenshot ss = (TakesScreenshot)driver;
     	File src = ss.getScreenshotAs(OutputType.FILE);
-    	File dest = new File("C:\\Users\\akhila.reddy\\Downloads\\Akhila Subex\\Automation testing\\eclipse-workspace\\SeleniumTest\\screenshots\\test.png");
+    	File dest = new File(System.getProperty("user.dir")+"\\screenshots\\test.png");
 
     	FileUtils.copyFile(src, dest);
     }
-//    @AfterClass
-//    public void tearDown()
-//    {
-//
-//        driver.close();
-//    }
-//    
+   
+    public void tearDown()
+    {
+
+        driver.close();
+    }
+    
+    
     @DataProvider(name="LoginData")
     public Object[][] getData() throws Exception
     {

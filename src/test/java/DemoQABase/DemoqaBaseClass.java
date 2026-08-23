@@ -2,13 +2,10 @@ package DemoQABase;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -24,7 +21,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.commons.io.FileUtils;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -37,9 +33,9 @@ public class DemoqaBaseClass {
     public void setup() 
     {
     	
-//   	ChromeOptions options = new ChromeOptions();
-//    	//To run the test cases in headless mode
-//    	options.addArguments("--headless=new");
+   	    ChromeOptions options = new ChromeOptions();
+    	//To run the test cases in headless mode
+    	options.addArguments("--headless=new");
 //    	//To handle SSL(privacy error)
 //    	options.setAcceptInsecureCerts(true);
 //    	
@@ -89,19 +85,30 @@ public class DemoqaBaseClass {
 
     	FileUtils.copyFile(src, dest);
     }
-   
+    
+   @AfterClass
     public void tearDown()
     {
 
         driver.close();
     }
+    @BeforeMethod
+    public void openTextBox() throws Exception
+    {
+        scrollDown();
+
+        driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
+
+        driver.findElement(By.xpath("//div[@class='left-pannel'][1]")).click();
+
+        driver.findElement(By.xpath("(//li[@id='item-0'])[1]")).click();
+    }
     
-    
-    @DataProvider(name="LoginData")
+   @DataProvider(name="LoginData")
     public Object[][] getData() throws Exception
     {
     	//opens excel file 
-    	FileInputStream file = new FileInputStream("C:\\Users\\akhila.reddy\\Downloads\\AutomationTest.xlsx");
+    	FileInputStream file = new FileInputStream("C:\\Users\\karth\\OneDrive\\Documents\\Akhila\\Akhila Subex\\Automation testing\\Test.xlsx");
     	//access workbook(excel file) and specific sheet
     	XSSFWorkbook wb= new XSSFWorkbook(file);
     	XSSFSheet sheet = wb.getSheet("Sheet1");
@@ -118,36 +125,38 @@ public class DemoqaBaseClass {
     	{
     	    for (int j = 0; j < cols; j++) 
     	    {
-    	        data[i-1][j] = sheet.getRow(i).getCell(j).toString();
-    	    }
+    	        data[i-1][j] = sheet.getRow(i).getCell(j).toString(); 
+       	    }
     	}
+    	wb.close();
+    	file.close();
     	return data;
     	
     }
-    @DataProvider(name="LoginData")
-    public Object[][] writeData() throws IOException 
-    {
-    	//creates excel file if doesn’t exist
-    	FileOutputStream file =  new FileOutputStream("C:\\ Downloads\\AutomationTest.xlsx");
-              //create workbook(excel file) and sheet
-    	XSSFWorkbook wb= new XSSFWorkbook();
-    	XSSFSheet sheet = wb.createSheet("Sheet1");
-
-                 //Create Rows and enter the data
-                  XSSFRow row1=sheet.createRow(0);
-                       row1.createCell(0).setCellValue("Selenium");
-                       row1.createCell(1).setCellValue(123);
-                       row1.createCell(2).setCellValue("Java");
-                    XSSFRow row2=sheet.createRow(1);
-                       row2.createCell(0).setCellValue("Selenium");
-                       row2.createCell(1).setCellValue(234);
-                       row2.createCell(2).setCellValue("C#");
-                       //Object[][] data = new Object[][];
-                 //Attach workbook to file
-          wb.write(file);
-          wb.close();
-          file.close();
-		  return null;
-      }
+//    @DataProvider(name="LoginData")
+//    public Object[][] writeData() throws IOException 
+//    {
+//    	//creates excel file if doesn’t exist
+//    	FileOutputStream file =  new FileOutputStream("C:\\Users\\karth\\OneDrive\\Documents\\Akhila\\Akhila Subex\\Automation testing\\Test.xlsx");
+//              //create workbook(excel file) and sheet
+//    	XSSFWorkbook wb= new XSSFWorkbook();
+//    	XSSFSheet sheet = wb.createSheet("Sheet1");
+//
+//                 //Create Rows and enter the data
+//                  XSSFRow row1=sheet.createRow(0);
+//                       row1.createCell(0).setCellValue("Selenium");
+//                       row1.createCell(1).setCellValue(123);
+//                       row1.createCell(2).setCellValue("Java");
+//                    XSSFRow row2=sheet.createRow(1);
+//                       row2.createCell(0).setCellValue("Selenium");
+//                       row2.createCell(1).setCellValue(234);
+//                       row2.createCell(2).setCellValue("C#");
+//                       //Object[][] data = new Object[][];
+//                 //Attach workbook to file
+//          wb.write(file);
+//          wb.close();
+//          file.close();
+//		  return null;
+//      }
 }
 

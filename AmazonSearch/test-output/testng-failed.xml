@@ -5,7 +5,7 @@
     <classes>
       <class name="SearchProduct.SearchProduct">
         <methods>
-          <include name="searchKidsaccesories"/>
+          <include name="searchKidsaccesories" invocation-numbers="0 1 6 7"/>
         </methods>
       </class> <!-- SearchProduct.SearchProduct -->
     </classes>

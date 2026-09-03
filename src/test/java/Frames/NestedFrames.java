@@ -1,14 +1,17 @@
 package Frames;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class NestedFrames {
-	public static void main(String Args[])
+import HerokuAppBase.HerokuAppBaseClass;
+
+public class NestedFrames extends HerokuAppBaseClass
+{
+	@Test
+	public void handleNestedFrames()
 	{
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://the-internet.herokuapp.com/frames");
+		//Navigate to frames
+		driver.findElement(By.xpath("//*[text()='Frames']"));
 		
 		 driver.findElement(By.xpath("//*[text()='Nested Frames']")).click();
 		 driver.switchTo().frame("frame-top");
@@ -29,8 +32,5 @@ public class NestedFrames {
 	        //switch to back
 	        driver.switchTo().defaultContent();
 	        System.out.println(driver.getTitle());
-		
-		
-		//driver.close();
 	}	
 }

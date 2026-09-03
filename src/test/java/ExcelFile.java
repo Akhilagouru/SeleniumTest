@@ -9,7 +9,14 @@ public class ExcelFile extends DemoqaBaseClass
 	@Test(dataProvider="LoginData")
 	public void readExcel(String fullname, String email) throws Exception
 	{
-	 //clears the text which is already present in the textbox and enters new row(name/email) from excel
+		scrollDown();
+
+        driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
+        driver.findElement(By.xpath("//div[@class='left-pannel'][1]")).click();
+        driver.findElement(By.xpath("(//li[@id='item-0'])[1]")).click();
+        
+        
+	    //clears the text which is already present in the textbox and enters new row(name/email) from excel
 		WebElement username = driver.findElement(By.id("userName"));
 		WebElement useremail = driver.findElement(By.id("userEmail"));
 		if(!username.equals(null))
@@ -29,7 +36,9 @@ public class ExcelFile extends DemoqaBaseClass
 	  //print the output after submit
 	  WebElement output = driver.findElement(By.id("output"));
 	  String userDetails = output.getText();
-	  System.out.println("Details of "+username+" is "+"\n"+userDetails);	
+	  System.out.println("Details of "+fullname+" is "+"\n"+userDetails);	
+	  
+	  driver.quit();
   	
 	}
 }

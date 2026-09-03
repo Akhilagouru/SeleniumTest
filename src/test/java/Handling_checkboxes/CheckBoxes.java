@@ -14,22 +14,30 @@ public class CheckBoxes extends DemoqaBaseClass
 	@Test
 	public void checkboxTest() throws IOException
 	{
+		 logger.info("******Testcase execution started*******");
+		 try
+		 {
 		 //xpath - click on Elements
-		   driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
+		  driver.findElement(By.xpath("//div[normalize-space()='Elements']")).click();
 		  
-		   //Expand Elements in new page - xpath with order number
+		  
+		 //Expand Elements in new page - xpath with order number
 		 driver.findElement(By.xpath("//div[@class='left-pannel'][1]")).click();
 		 driver.findElement(By.xpath("//*[text()='Check Box']")).click();
+		 logger.info("--Selected elements and navigated to check box page");
 		 
 		 //Expand Home
-		WebElement expandHome = driver.findElement(By.className("rc-tree-switcher"));
-	    expandHome.click();
+		 WebElement expandHome = driver.findElement(By.className("rc-tree-switcher"));
+	     expandHome.click();
 	    
-	   scrollDown();
-	   screenShots();
+	     scrollDown();
+	     screenShots();
+	     logger.info("--Expanded home and took screenshot");
+	   
 		   //Expand all the items with + icon
 		 List<WebElement> ExpandItems = driver.findElements(By.cssSelector(".rc-tree-switcher_close"));
 		 System.out.println("The Number of items under Home is: "+ExpandItems.size());
+		 logger.info("--Expanded all the items and fetched the size");
 		
 		 for(WebElement ExpandAll:ExpandItems)
 		 {
@@ -47,12 +55,14 @@ public class CheckBoxes extends DemoqaBaseClass
 		 } 
 		 WebElement result = driver.findElement(By.id("result"));
 		 System.out.println(result.getText());
+		 logger.info("Selected all the checkboxes and printed the text");
 		 
 	
 		 //deselects Desktop
 		 WebElement DeselectDesktop = driver.findElement(By.xpath("//span[@aria-label=\"Select Desktop\"]"));
 		 DeselectDesktop.click();
-	
+		 logger.info("Deselected Desktop");
+		 
 		 String updatedText = result.getText();
 		 //validates the result message
 		 if(!updatedText.contains("desktop")) 
@@ -64,6 +74,14 @@ public class CheckBoxes extends DemoqaBaseClass
 			 System.out.println("Testcase failed");
 		 }
 	}
+	catch(Exception e)
+	{
+		logger.error("***Testcase failed****");
+		logger.error(e.getMessage());
+		
+	}
+	logger.info("******Testcase execution completed*******");
+}
 }
 		 
 		 //Try later

@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ExcelFile">
+      <class name="Handling_checkboxes.CheckBoxes">
         <methods>
-          <include name="readExcel"/>
           <include name="tearDown"/>
           <include name="setup"/>
-          <include name="openTextBox"/>
+          <include name="checkboxTest"/>
         </methods>
-      </class> <!-- ExcelFile -->
+      </class> <!-- Handling_checkboxes.CheckBoxes -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

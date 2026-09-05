@@ -4,24 +4,40 @@
 
     <Appenders>
 
-        <!-- Console Appender -->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %c{1} - %msg%n"/>
         </Console>
+        
+        <!--Routing appender creates seperate log file for each class-->
+        <Routing name="Routing">
 
-        <!-- File Appender -->
-        <File name="File" fileName="logs/selenium.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %c{1} - %msg%n"/>
-        </File>
+            <Routes pattern="$${ctx:className}">
+
+                <Route>
+                    <File
+                        name="File-${ctx:className}"
+                        fileName="logs/${ctx:className}.log">
+
+                        <PatternLayout>
+                            <Pattern>
+                                %d{yyyy-MM-dd HH:mm:ss} %-5level %c{1} - %msg%n
+                            </Pattern>
+                        </PatternLayout>
+
+                    </File>
+                </Route>
+
+            </Routes>
+
+        </Routing>
 
     </Appenders>
 
     <Loggers>
 
-        <!-- Root Logger -->
-        <Root level="infp">
+        <Root level="INFO">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
+            <AppenderRef ref="Routing"/>
         </Root>
 
     </Loggers>

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import org.apache.logging.log4j.ThreadContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -33,7 +33,9 @@ public class DemoqaBaseClass {
     @BeforeClass
     public void setup() 
     {
-    	logger= LogManager.getLogger(this.getClass());
+    	 logger = LogManager.getLogger(getClass());
+    	 ThreadContext.put("className", getClass().getSimpleName());
+    	//logger= LogManager.getLogger(this.getClass());
     	
    	    ChromeOptions options = new ChromeOptions();
     	//To run the test cases in headless mode

@@ -36,10 +36,11 @@ public class ExcelFile extends DemoqaBaseClass
 	  //print the output after submit
 	  WebElement output = driver.findElement(By.id("output"));
 	  String userDetails = output.getText();
+
 	  System.out.println("Details of "+fullname+" is "+"\n"+userDetails);	
 	  
 	  driver.quit();
-  	
+	  
 	}
 }
 //	@Test(dataProvider="LoginData")

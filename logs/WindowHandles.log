@@ -10,3 +10,5 @@ Command: [2d130020f093ed5e33b43e85dd82694c, findElement {using=xpath, value=//*[
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 152.0.7977.82, chrome: {chromedriverVersion: 152.0.7977.82 (d04cdb24d67b..., userDataDir: C:\Users\karth\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54883}, goog:processID: 31888, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54883/devtoo..., se:cdpVersion: 152.0.7977.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: 2d130020f093ed5e33b43e85dd82694c
 2026-09-05 17:41:33 INFO  WindowHandles - *****Testcase execution started*****
+2026-09-07 17:41:41 INFO  WindowHandles - *****Testcase execution started*****
+2026-09-07 18:00:43 INFO  WindowHandles - *****Testcase execution started*****

@@ -1,4 +1,4 @@
-package HerokuAppBase;
+package herokuapp;
 
 import java.time.Duration;
 

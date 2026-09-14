@@ -1,4 +1,4 @@
-package DemoQABase;
+
 
 import java.time.Duration;
 
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class navigationMethods
+public class NavigationMethods
 {
 	@Test
 public void navigate()

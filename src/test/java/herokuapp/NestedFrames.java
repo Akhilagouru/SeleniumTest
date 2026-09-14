@@ -1,9 +1,9 @@
-package Frames;
+package herokuapp;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import HerokuAppBase.HerokuAppBaseClass;
+
 
 public class NestedFrames extends HerokuAppBaseClass
 {

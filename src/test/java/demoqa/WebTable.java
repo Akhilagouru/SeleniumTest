@@ -1,10 +1,9 @@
+package demoqa;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
-import DemoQABase.DemoqaBaseClass;
 
 public class WebTable extends DemoqaBaseClass
 {

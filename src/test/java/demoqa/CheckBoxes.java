@@ -1,4 +1,4 @@
-package Handling_checkboxes;
+package demoqa;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import DemoQABase.DemoqaBaseClass;
 
 
 public class CheckBoxes extends DemoqaBaseClass

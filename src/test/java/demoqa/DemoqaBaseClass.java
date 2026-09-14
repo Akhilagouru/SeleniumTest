@@ -1,4 +1,4 @@
-package DemoQABase;
+package demoqa;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,7 +35,6 @@ public class DemoqaBaseClass {
     {
     	 logger = LogManager.getLogger(getClass());
     	 ThreadContext.put("className", getClass().getSimpleName());
-    	//logger= LogManager.getLogger(this.getClass());
     	
    	    ChromeOptions options = new ChromeOptions();
     	//To run the test cases in headless mode
@@ -76,6 +75,11 @@ public class DemoqaBaseClass {
     	        .equals("complete")
     	);
     }
+    public void scrollToElement(WebElement ele)
+    {
+    	JavascriptExecutor js = (JavascriptExecutor) driver;
+    	js.executeScript("arguments[0].scrollIntoView(true);", ele);
+    }
     public void clickInterception(WebElement ele) 
     {
 
@@ -93,8 +97,10 @@ public class DemoqaBaseClass {
    @AfterClass
     public void tearDown()
     {
-
-        driver.close();
+	   if(!driver.equals(null))
+	   {
+        driver.quit();
+	   }
     }
     
    @DataProvider(name="LoginData")

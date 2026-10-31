@@ -24,6 +24,7 @@ public class HomePageModulesAndSubmodules extends DemoqaBaseClass
 	    	System.out.println("Validating title : Testcase Failed");
 	    }
 	}
+	@Test
 	public void itemsAndSubItems()
 	{
 	   

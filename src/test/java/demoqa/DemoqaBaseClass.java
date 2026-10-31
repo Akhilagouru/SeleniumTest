@@ -43,11 +43,11 @@ public class DemoqaBaseClass {
 //    	options.setAcceptInsecureCerts(true);
 //    	
         driver = new ChromeDriver();
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        
         driver.get("https://demoqa.com");
         driver.manage().window().maximize();
+        options.addArguments("--window-size=1366,768");
     }
 
     public void scrollDown()
@@ -79,6 +79,12 @@ public class DemoqaBaseClass {
     {
     	JavascriptExecutor js = (JavascriptExecutor) driver;
     	js.executeScript("arguments[0].scrollIntoView(true);", ele);
+    }
+    public void removeAds()
+    {
+    	JavascriptExecutor js = (JavascriptExecutor) driver;
+    	js.executeScript(
+    		    "document.querySelectorAll('#fixedban, footer, iframe, .adsbygoogle').forEach(e => e.remove());");
     }
     public void clickInterception(WebElement ele) 
     {

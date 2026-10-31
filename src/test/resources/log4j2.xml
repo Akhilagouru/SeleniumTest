@@ -16,7 +16,8 @@
                 <Route>
                     <File
                         name="File-${ctx:className}"
-                        fileName="logs/${ctx:className}.log">
+                        fileName="logs/${ctx:className}.log"
+                        append="false">
 
                         <PatternLayout>
                             <Pattern>

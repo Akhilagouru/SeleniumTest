@@ -1,0 +1,15 @@
+2026-10-27 10:15:26 INFO  CheckBoxes - ******Testcase execution started*******
+2026-10-27 10:15:27 INFO  CheckBoxes - --Selected elements and navigated to check box page
+2026-10-27 10:15:27 INFO  CheckBoxes - --Expanded home and took screenshot
+2026-10-27 10:15:27 INFO  CheckBoxes - --Expanded all the items and fetched the size
+2026-10-27 10:15:29 ERROR CheckBoxes - ***Testcase failed****
+2026-10-27 10:15:29 ERROR CheckBoxes - element click intercepted: Element is not clickable at point (271, -260)
+  (Session info: chrome=155.0.8059.85)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7979456689fb9b94a055090b4526555c, clickElement {id=f.905ACB6E8B65020E2441CA64870C7945.d.89E63AFD441EA26184C4867C88588B25.e.27}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 155.0.8059.85, chrome: {chromedriverVersion: 155.0.8059.84 (5869fe313571..., userDataDir: C:\Users\karth\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52716}, goog:processID: 16864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52716/devtoo..., se:cdpVersion: 155.0.8059.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (7979456689fb9b94a055090b4526555c)] -> css selector: .rc-tree-switcher_close]
+Session ID: 7979456689fb9b94a055090b4526555c
+2026-10-27 10:15:29 INFO  CheckBoxes - ******Testcase execution completed*******
